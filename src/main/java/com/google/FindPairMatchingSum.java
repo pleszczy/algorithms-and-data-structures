@@ -3,7 +3,7 @@ package com.google;
 public class FindPairMatchingSum {
 
   // O(n2)
-  public int[] findPairSum(int[] numbers, int sum) {
+  public int[] findPairSumSlowSolution(int[] numbers, int sum) {
     for (int i = 0; i < numbers.length; i++) {
       for (int j = i + 1; j < numbers.length; j++) {
         if (numbers[i] + numbers[j] == sum) {
@@ -15,11 +15,26 @@ public class FindPairMatchingSum {
   }
 
   // O(n*logn)
-  public int[] findPairSumUsingBinarySearch(int[] numbers, int sum) {
+  public int[] findPairSumFasterSolution(int[] numbers, int sum) {
     for (int number : numbers) {
-      int index = binarySearch(numbers, 0, numbers.length-1, sum - number);
+      int index = binarySearch(numbers, 0, numbers.length - 1, sum - number);
       if (index != -1) {
         return new int[] {number, numbers[index]};
+      }
+    }
+    return new int[] {};
+  }
+
+  // O(n)
+  public int[] findPairSumOptimalSolution(int[] numbers, int sum) {
+    int right = numbers.length - 1;
+    for (int i = 0; i < right; i++) {
+      while (numbers[i] + numbers[right] > sum && right < numbers.length - 1) {
+        right = right - 1;
+      }
+
+      if (numbers[i] + numbers[right] == sum) {
+        return new int[] {numbers[i], numbers[right]};
       }
     }
     return new int[] {};
