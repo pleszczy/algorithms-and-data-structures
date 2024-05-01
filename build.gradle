@@ -9,11 +9,22 @@ repositories {
     mavenCentral()
 }
 
+ext {
+    assertjVersion = '3.25.1'
+    junit = '5.10.0'
+}
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation platform("org.junit:junit-bom:${junit}")
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation("org.assertj:assertj-core:${assertjVersion}")
 }
 
 test {
     useJUnitPlatform()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21) // Specify the Java version
+    }
 }
