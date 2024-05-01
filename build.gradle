@@ -10,7 +10,7 @@ repositories {
 }
 
 ext {
-    assertjVersion = '3.25.1'
+    assertjVersion = '3.25.3'
     junit = '5.10.0'
 }
 dependencies {
