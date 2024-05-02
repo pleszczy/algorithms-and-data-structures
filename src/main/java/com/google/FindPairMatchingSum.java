@@ -1,5 +1,7 @@
 package com.google;
 
+import java.util.HashSet;
+
 public class FindPairMatchingSum {
 
   // O(n2)
@@ -28,15 +30,27 @@ public class FindPairMatchingSum {
   // O(n)
   public int[] findPairSumOptimalSolution(int[] numbers, int sum) {
     int right = numbers.length - 1;
-    for (int i = 0; i < right; i++) {
-      while (numbers[i] + numbers[right] > sum && right < numbers.length - 1) {
-        right = right - 1;
+    for (int i = 0; i <= right; i++) {
+      while (numbers[i] + numbers[right] > sum && right > 0) {
+        right -= 1;
       }
 
       if (numbers[i] + numbers[right] == sum) {
         return new int[] {numbers[i], numbers[right]};
       }
     }
+    return new int[] {};
+  }
+
+  // O(n) + support of unordered input data
+  public int[] findPairSumOptimalSolutionForUnorderedData(int[] numbers, int sum) {
+    HashSet<Integer> seenNumbers = new HashSet<>(numbers.length);
+    for (int number : numbers) {
+      int complement = sum - number;
+      if (seenNumbers.contains(complement)) {
+        return new int[] {complement, number};
+      }
+      seenNumbers.add(number);    }
     return new int[] {};
   }
 

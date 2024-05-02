@@ -4,7 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-class FindPairMatchingSumTest {
+class
+FindPairMatchingSumTest {
   @Test
   void should_not_find_a_matching_pair() {
     FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
@@ -79,6 +80,25 @@ class FindPairMatchingSumTest {
   }
 
   @Test
+  void should_not_find_a_matching_pair_with_huge_sum_optimal_solution() {
+    FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
+
+    int[] matchingPairs = systemUnderTest.findPairSumOptimalSolution(new int[] {1, 2, 3, 9}, 999);
+
+    assertThat(matchingPairs).isEmpty();
+  }
+
+  @Test
+  void should_not_find_a_matching_pair_with_negative_sum_optimal_solution() {
+    FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
+
+    int[] matchingPairs = systemUnderTest.findPairSumOptimalSolution(new int[] {1, 2, 3, 9}, -999);
+
+    assertThat(matchingPairs).isEmpty();
+  }
+
+
+  @Test
   void should_find_a_matching_pair_optimal_solution() {
     FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
 
@@ -93,6 +113,35 @@ class FindPairMatchingSumTest {
 
     int[] matchingPairs =
         systemUnderTest.findPairSumOptimalSolution(new int[] {1, 2, 4, 4, 5, 6}, 10);
+
+    assertThat(matchingPairs).containsExactlyInAnyOrder(4, 6);
+  }
+
+ @Test
+  void should_find_a_matching_pair_optimal_solution_2() {
+    FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
+
+    int[] matchingPairs = systemUnderTest.findPairSumOptimalSolutionForUnorderedData(new int[] {1, 2, 4, 4}, 8);
+
+    assertThat(matchingPairs).containsExactlyInAnyOrder(4, 4);
+  }
+
+  @Test
+  void should_find_a_matching_pair_not_adjacent_optimal_solution_2() {
+    FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
+
+    int[] matchingPairs =
+        systemUnderTest.findPairSumOptimalSolutionForUnorderedData(new int[] {1, 2, 4, 4, 5, 6}, 10);
+
+    assertThat(matchingPairs).containsExactlyInAnyOrder(4, 6);
+  }
+
+  @Test
+  void should_find_a_matching_pair_not_adjacent_in_unordered_numbers_optimal_solution_2() {
+    FindPairMatchingSum systemUnderTest = new FindPairMatchingSum();
+
+    int[] matchingPairs =
+        systemUnderTest.findPairSumOptimalSolutionForUnorderedData(new int[] {6, 2, 5, 4, 2, 1}, 10);
 
     assertThat(matchingPairs).containsExactlyInAnyOrder(4, 6);
   }
