@@ -50,7 +50,8 @@ public class FindPairMatchingSum {
       if (seenNumbers.contains(complement)) {
         return new int[] {complement, number};
       }
-      seenNumbers.add(number);    }
+      seenNumbers.add(number);
+    }
     return new int[] {};
   }
 

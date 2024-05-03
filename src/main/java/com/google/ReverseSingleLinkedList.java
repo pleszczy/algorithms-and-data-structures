@@ -1,8 +1,8 @@
 package com.google;
 
 public class ReverseSingleLinkedList {
-  // INPUT a -> b -> c -> d
-  // OUTPUT d -> c -> b -> a
+  // Input: a -> b -> c -> d
+  // Expected output: d -> c -> b -> a
   public <E> Node<E> solution(Node<E> head) {
     Node<E> previous = null;
     Node<E> current = head;
