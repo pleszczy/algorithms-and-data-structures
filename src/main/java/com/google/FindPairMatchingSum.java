@@ -5,7 +5,7 @@ import java.util.HashSet;
 public class FindPairMatchingSum {
 
   // O(n2)
-  public int[] findPairSumSlowSolution(int[] numbers, int sum) {
+  public int[] solution(int[] numbers, int sum) {
     for (int i = 0; i < numbers.length; i++) {
       for (int j = i + 1; j < numbers.length; j++) {
         if (numbers[i] + numbers[j] == sum) {
@@ -17,7 +17,7 @@ public class FindPairMatchingSum {
   }
 
   // O(n*logn)
-  public int[] findPairSumFasterSolution(int[] numbers, int sum) {
+  public int[] fasterSolution(int[] numbers, int sum) {
     for (int number : numbers) {
       int index = binarySearch(numbers, 0, numbers.length - 1, sum - number);
       if (index != -1) {
@@ -28,7 +28,7 @@ public class FindPairMatchingSum {
   }
 
   // O(n)
-  public int[] findPairSumOptimalSolution(int[] numbers, int sum) {
+  public int[] optimalSolution(int[] numbers, int sum) {
     int right = numbers.length - 1;
     for (int i = 0; i <= right; i++) {
       while (numbers[i] + numbers[right] > sum && right > 0) {
@@ -43,7 +43,7 @@ public class FindPairMatchingSum {
   }
 
   // O(n) + support of unordered input data
-  public int[] findPairSumOptimalSolutionForUnorderedData(int[] numbers, int sum) {
+  public int[] optimalSolutionForUnorderedInput(int[] numbers, int sum) {
     HashSet<Integer> seenNumbers = new HashSet<>(numbers.length);
     for (int number : numbers) {
       int complement = sum - number;
