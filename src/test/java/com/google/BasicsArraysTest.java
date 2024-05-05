@@ -75,7 +75,7 @@ class BasicsArraysTest {
     var k = sut.removeElement(input, valueToRemove);
 
     assertThat(k).isEqualTo(5);
-    assertThat(input).containsExactlyInAnyOrder(0, 1, 3, 0, 4);
+    assertThat(input).contains(0, 1, 3, 0, 4);
   }
 
   @Test

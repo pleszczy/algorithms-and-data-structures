@@ -40,10 +40,10 @@ public class BaseballGame {
       }
     }
 
-    int callPointsSummed = 0;
+    int callPointsSum = 0;
     for (Integer number : callPoints) {
-      callPointsSummed += number;
+      callPointsSum += number;
     }
-    return callPointsSummed;
+    return callPointsSum;
   }
 }
