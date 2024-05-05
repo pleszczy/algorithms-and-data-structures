@@ -75,12 +75,7 @@ class BasicsArraysTest {
     var k = sut.removeElement(input, valueToRemove);
 
     assertThat(k).isEqualTo(5);
-    assertThat(input)
-        .contains(0, 0)
-        .contains(1, 1)
-        .contains(3, 2)
-        .contains(0, 3)
-        .contains(4, 4);
+    assertThat(input).startsWith(0, 1, 3, 0, 4);
   }
 
   @Test
