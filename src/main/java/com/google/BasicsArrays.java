@@ -1,7 +1,5 @@
 package com.google;
 
-import java.util.Arrays;
-
 public class BasicsArrays {
   // input: 1,2,3,5,6,7
   // output: 1,2,3,4,5,6
@@ -25,11 +23,29 @@ public class BasicsArrays {
         k--;
       }
     }
-    System.out.println(Arrays.toString(input));
     return k;
   }
 
-  public void shift(int[] input, int shiftUtil) {
+  // input: 1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 7
+  // output: 7 (number of unique numbers)
+  public int removeDuplicatesOptimal(int[] input) {
+    int k = 1;
+    int leftPointer = 1;
+    for (int i = 1; i < input.length; i++) {
+      if (input[i] == input[i - 1]) {
+        if (i == k) {
+          leftPointer = i;
+        }
+      } else {
+        k++;
+        input[leftPointer] = input[i];
+        leftPointer++;
+      }
+    }
+    return k;
+  }
+
+  private void shift(int[] input, int shiftUtil) {
     var previous = input[input.length - 1];
     for (int i = input.length - 2; i > shiftUtil; i--) {
       var current = input[i];
