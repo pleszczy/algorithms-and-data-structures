@@ -3,7 +3,6 @@ package com.google;
 import java.util.HashSet;
 
 public class FindPairMatchingSum {
-
   // O(n2)
   public int[] solution(int[] numbers, int sum) {
     for (int i = 0; i < numbers.length; i++) {
@@ -19,7 +18,7 @@ public class FindPairMatchingSum {
   // O(n*logn)
   public int[] fasterSolution(int[] numbers, int sum) {
     for (int number : numbers) {
-      int index = binarySearch(numbers, 0, numbers.length - 1, sum - number);
+      var index = binarySearch(numbers, 0, numbers.length - 1, sum - number);
       if (index != -1) {
         return new int[] {number, numbers[index]};
       }
@@ -29,7 +28,7 @@ public class FindPairMatchingSum {
 
   // O(n)
   public int[] optimalSolution(int[] numbers, int sum) {
-    int right = numbers.length - 1;
+    var right = numbers.length - 1;
     for (int i = 0; i <= right; i++) {
       while (numbers[i] + numbers[right] > sum && right > 0) {
         right -= 1;
@@ -44,9 +43,9 @@ public class FindPairMatchingSum {
 
   // O(n) + support of unordered input data
   public int[] optimalSolutionForUnorderedInput(int[] numbers, int sum) {
-    HashSet<Integer> seenNumbers = new HashSet<>(numbers.length);
+    var seenNumbers = new HashSet<>(numbers.length);
     for (int number : numbers) {
-      int complement = sum - number;
+      var complement = sum - number;
       if (seenNumbers.contains(complement)) {
         return new int[] {complement, number};
       }
@@ -57,7 +56,7 @@ public class FindPairMatchingSum {
 
   private int binarySearch(int[] array, int left, int right, int target) {
     if (right >= left) {
-      int mid = left + (right - left) / 2;
+      var mid = left + (right - left) / 2;
 
       if (array[mid] == target) {
         return mid;

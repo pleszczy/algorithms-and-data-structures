@@ -15,7 +15,7 @@ public class ReverseBinaryTree {
    *   8   9
    * </pre>
    * <p>
-   *
+   * <p>
    * Expected output:
    * <pre>
    *         1
@@ -27,7 +27,14 @@ public class ReverseBinaryTree {
    *           9   8
    * </pre>
    */
-  public <E> BinaryTreeNode<E> solution(BinaryTreeNode<E> root) {
-    return root;
+  public <E> TreeNode<E> solution(TreeNode<E> node) {
+    if (node != null) {
+      var left = node.left;
+      node.left = node.right;
+      node.right = left;
+      solution(node.left);
+      solution(node.right);
+    }
+    return node;
   }
 }

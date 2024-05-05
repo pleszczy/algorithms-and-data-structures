@@ -11,7 +11,7 @@ class ReverseSingleLinkedListTest {
   void should_reverse_linked_list() {
     var sut = new ReverseSingleLinkedList();
 
-    Node<String> actual = sut.solution(linkedList());
+    var actual = sut.solution(linkedList());
 
     assertThat(actual).isEqualTo(linkedListReversed());
   }
