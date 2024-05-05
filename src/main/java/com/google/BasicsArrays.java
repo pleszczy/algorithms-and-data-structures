@@ -32,11 +32,7 @@ public class BasicsArrays {
     int k = 1;
     int leftPointer = 1;
     for (int i = 1; i < input.length; i++) {
-      if (input[i] == input[i - 1]) {
-        if (i == k) {
-          leftPointer = i;
-        }
-      } else {
+      if (input[i] != input[i - 1]) {
         k++;
         input[leftPointer] = input[i];
         leftPointer++;
