@@ -16,7 +16,7 @@ class BasicsArraysTest {
 
   @Test
   void should_remove_duplicated_values_in_a_sorted_array() {
-    var input =    new int[] {1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 7};
+    var input = new int[] {1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 7};
     var expected = new int[] {1, 2, 3, 4, 5, 6, 7};
     var sut = new BasicsArrays();
 
@@ -30,7 +30,7 @@ class BasicsArraysTest {
 
   @Test
   void should_remove_duplicated_values_in_a_sorted_array_using_optimal_solution() {
-    var input =    new int[] {1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 7};
+    var input = new int[] {1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 7};
     var expected = new int[] {1, 2, 3, 4, 5, 6, 7};
     var sut = new BasicsArrays();
 
@@ -44,7 +44,7 @@ class BasicsArraysTest {
 
   @Test
   void should_remove_duplicated_values_in_a_sorted_array_using_optimal_solution_for_2_element_input() {
-    var input =    new int[] {1, 2};
+    var input = new int[] {1, 2};
     var expected = new int[] {1, 2};
     var sut = new BasicsArrays();
 
@@ -58,11 +58,23 @@ class BasicsArraysTest {
 
   @Test
   void should_remove_duplicated_values_in_a_sorted_array_using_optimal_solution_for_2_element_empty() {
-    var input =    new int[] {};
+    var input = new int[] {};
     var sut = new BasicsArrays();
 
     var noOfUniques = sut.removeDuplicatesOptimal(input);
 
     assertThat(noOfUniques).isEqualTo(0);
+  }
+
+  @Test
+  void should_remove_value() {
+    var input = new int[] {0, 1, 2, 2, 3, 0, 4, 2};
+    var valueToRemove = 2;
+    var sut = new BasicsArrays();
+
+    var k = sut.removeElement(input, valueToRemove);
+
+    assertThat(k).isEqualTo(5);
+    assertThat(input).containsExactlyInAnyOrder(0,1,3,0,4);
   }
 }
