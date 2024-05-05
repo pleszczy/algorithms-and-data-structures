@@ -25,7 +25,7 @@ public class BasicsArrays {
   }
 
   public int removeDuplicatesOptimal(int[] input) {
-    if (input == null || input.length == 0){
+    if (input == null || input.length == 0) {
       return 0;
     }
     int leftPointer = 1;
@@ -47,13 +47,26 @@ public class BasicsArrays {
    */
   public int removeElement(int[] nums, int val) {
     int leftPointer = 0;
-    for (int i =  0; i < nums.length; i++) {
+    for (int i = 0; i < nums.length; i++) {
       if (nums[i] != val) {
         nums[leftPointer] = nums[i];
         leftPointer++;
       }
     }
     return leftPointer;
+  }
+
+  /**
+   * Given an integer array nums of length n, you want to create an array ans of length 2n where ans[i] == nums[i] and ans[i + n] == nums[i] for 0 <= i < n (0-indexed).
+   * Specifically, ans is the concatenation of two nums arrays. Return the array ans.
+   */
+  public int[] getConcatenation(int[] nums) {
+    var output = new int[nums.length * 2];
+    for (int i = 0; i < nums.length; i++) {
+      output[i] = nums[i];
+      output[nums.length + i] = nums[i];
+    }
+    return output;
   }
 
 

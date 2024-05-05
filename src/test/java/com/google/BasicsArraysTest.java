@@ -75,6 +75,17 @@ class BasicsArraysTest {
     var k = sut.removeElement(input, valueToRemove);
 
     assertThat(k).isEqualTo(5);
-    assertThat(input).containsExactlyInAnyOrder(0,1,3,0,4);
+    assertThat(input).containsExactlyInAnyOrder(0, 1, 3, 0, 4);
+  }
+
+  @Test
+  void should_concatenate_arrays() {
+    var input = new int[] {1, 3, 2, 1};
+    var expected = new int[] {1, 3, 2, 1, 1, 3, 2, 1};
+    var sut = new BasicsArrays();
+
+    var actual = sut.getConcatenation(input);
+
+    assertThat(actual).isEqualTo(expected);
   }
 }
