@@ -16,6 +16,15 @@ class ReverseSingleLinkedListTest {
     assertThat(actual).isEqualTo(linkedListReversed());
   }
 
+  @Test
+  void should_reverse_linked_list_using_a_stack() {
+    var sut = new ReverseSingleLinkedList();
+
+    var actual = sut.solutionUsingStack(linkedList());
+
+    assertThat(actual).isEqualTo(linkedListReversed());
+  }
+
   static class Constants {
     static Node<String> linkedList() {
       var d = new Node<>("d", null);
