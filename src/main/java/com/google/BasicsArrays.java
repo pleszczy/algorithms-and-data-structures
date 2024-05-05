@@ -29,16 +29,17 @@ public class BasicsArrays {
   // input: 1, 1, 2, 3, 4, 4, 5, 5, 6, 7, 7
   // output: 7 (number of unique numbers)
   public int removeDuplicatesOptimal(int[] input) {
-    int k = 1;
+    if (input == null || input.length == 0){
+      return 0;
+    }
     int leftPointer = 1;
     for (int i = 1; i < input.length; i++) {
       if (input[i] != input[i - 1]) {
-        k++;
         input[leftPointer] = input[i];
         leftPointer++;
       }
     }
-    return k;
+    return leftPointer;
   }
 
   private void shift(int[] input, int shiftUtil) {

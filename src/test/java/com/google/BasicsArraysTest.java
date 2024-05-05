@@ -55,4 +55,14 @@ class BasicsArraysTest {
       assert input[i] == expected[i];
     }
   }
+
+  @Test
+  void should_remove_duplicated_values_in_a_sorted_array_using_optimal_solution_for_2_element_empty() {
+    var input =    new int[] {};
+    var sut = new BasicsArrays();
+
+    var noOfUniques = sut.removeDuplicatesOptimal(input);
+
+    assertThat(noOfUniques).isEqualTo(0);
+  }
 }
