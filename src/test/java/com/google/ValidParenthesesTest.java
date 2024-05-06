@@ -1,7 +1,6 @@
 package com.google;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,6 +29,15 @@ class ValidParenthesesTest {
     var sut = new ValidParentheses();
 
     var actual = sut.isValid("()");
+
+    assertThat(actual).isTrue();
+  }
+
+  @Test
+  void should_be_valid_example_3() {
+    var sut = new ValidParentheses();
+
+    var actual = sut.isValid("{[]}");
 
     assertThat(actual).isTrue();
   }
