@@ -2,13 +2,14 @@ package com.google;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class MinStack {
-  private final List<Integer> stack;
+  private final Stack<Integer> stack;
   private final List<Integer> minValues;
 
   public MinStack() {
-    stack = new ArrayList<>();
+    stack = new Stack<>();
     minValues = new ArrayList<>();
   }
 
@@ -40,8 +41,8 @@ public class MinStack {
   }
 
   public void pop() {
-    int last = stack.removeLast();
-    minValues.remove(Integer.valueOf(last));
+    Integer last = stack.pop();
+    minValues.remove(last);
   }
 
   int top() {
