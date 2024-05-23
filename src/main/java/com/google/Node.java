@@ -6,11 +6,11 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class Node<E> {
-  E item;
+  E val;
   Node<E> next;
 
   Node(E element, Node<E> next) {
-    this.item = element;
+    this.val = element;
     this.next = next;
   }
 }
