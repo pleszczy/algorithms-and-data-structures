@@ -1,5 +1,10 @@
 package com.google;
 
+/**
+ * 707. Design Linked List
+ * <p>
+ * <a href="https://leetcode.com/problems/design-linked-list/description/">...</a>
+ */
 public class MyLinkedList {
   private final DoubleLinkedNode<Integer> head;
   private final DoubleLinkedNode<Integer> tail;
