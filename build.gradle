@@ -15,6 +15,7 @@ ext {
     junit = '5.10.2'
 }
 dependencies {
+    implementation 'com.google.guava:guava:33.4.6-jre'
     testImplementation platform("org.junit:junit-bom:${junit}")
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
