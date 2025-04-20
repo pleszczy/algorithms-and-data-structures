@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 public class Fibonacci {
-  private static final Map<Integer, BigInteger> cache = new LinkedHashMap<>(256, 1.0f, true) {
+  private static final Map<Integer, BigInteger> lruCache = new LinkedHashMap<>(256, 1.0f, true) {
     @Override
     protected boolean removeEldestEntry(Map.Entry<Integer, BigInteger> eldest) {
       return this.size() > 256;
@@ -27,19 +27,19 @@ public class Fibonacci {
   }
 
   public static BigInteger fibRecursiveMemoized(int n) {
-    if (cache.containsKey(n)) {
-      return cache.get(n);
+    if (lruCache.containsKey(n)) {
+      return lruCache.get(n);
     }
     if (n == 0) {
-      cache.put(n, BigInteger.ZERO);
+      lruCache.put(n, BigInteger.ZERO);
       return BigInteger.ZERO;
     }
     if (n <= 2) {
-      cache.put(n, BigInteger.ONE);
+      lruCache.put(n, BigInteger.ONE);
       return BigInteger.ONE;
     }
     var fib = fibRecursiveMemoized(n - 1).add(fibRecursiveMemoized(n - 2));
-    cache.put(n, fib);
+    lruCache.put(n, fib);
     return fib;
   }
 
