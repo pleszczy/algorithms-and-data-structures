@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id("io.freefair.lombok") version "8.10"
+    id("io.freefair.lombok") version "8.13.1"
 }
 
 group = 'com.google'
@@ -13,13 +13,14 @@ repositories {
 ext {
     assertjVersion = '3.25.3'
     junit = '5.11.0'
+    guava = '33.4.8-jre'
 }
 dependencies {
-    implementation 'com.google.guava:guava:33.4.6-jre'
-    testImplementation platform("org.junit:junit-bom:${junit}")
+    implementation "com.google.guava:guava:$guava"
+    testImplementation platform("org.junit:junit-bom:$junit")
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testImplementation("org.assertj:assertj-core:${assertjVersion}")
+    testImplementation("org.assertj:assertj-core:$assertjVersion")
 }
 
 test {
@@ -28,6 +29,6 @@ test {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
+        languageVersion = JavaLanguageVersion.of(22)
     }
 }
