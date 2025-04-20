@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class LruCacheUsingLhmAccessOrderTest {
-  private final LruCacheUsingLhmAccessOrder systemUnderTest = new LruCacheUsingLhmAccessOrder(3);
+  private final LruCacheUsingLhmAccessOrder<String, String> systemUnderTest = new LruCacheUsingLhmAccessOrder<>(3);
 
   @Test
   void should_return_least_recently_used_entries() {
