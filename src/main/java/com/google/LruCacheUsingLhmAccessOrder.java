@@ -3,10 +3,10 @@ package com.google;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LruCacheUsingLhmWithAccessOrderingMode extends LinkedHashMap<String, String> {
+public class LruCacheUsingLhmAccessOrder extends LinkedHashMap<String, String> {
   private final int capacity;
 
-  public LruCacheUsingLhmWithAccessOrderingMode(int capacity) {
+  public LruCacheUsingLhmAccessOrder(int capacity) {
     super(capacity, 1.0f, true);
     this.capacity = capacity;
   }
@@ -17,7 +17,7 @@ public class LruCacheUsingLhmWithAccessOrderingMode extends LinkedHashMap<String
   }
 
   public static void main(String[] args) {
-    var lruCache = new LruCacheUsingLhmWithAccessOrderingMode(3);
+    var lruCache = new LruCacheUsingLhmAccessOrder(3);
     lruCache.put("1", "1");
     lruCache.put("2", "2");
     lruCache.put("3", "3");
