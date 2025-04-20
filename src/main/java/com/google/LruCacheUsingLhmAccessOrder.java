@@ -3,7 +3,7 @@ package com.google;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class LruCacheUsingLhmAccessOrder extends LinkedHashMap<String, String> {
+public class LruCacheUsingLhmAccessOrder<K, V> extends LinkedHashMap<K, V> {
   private final int capacity;
 
   public LruCacheUsingLhmAccessOrder(int capacity) {
@@ -12,7 +12,7 @@ public class LruCacheUsingLhmAccessOrder extends LinkedHashMap<String, String> {
   }
 
   @Override
-  protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
+  protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
     return size() > capacity;
   }
 }
