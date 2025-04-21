@@ -1,8 +1,7 @@
-package com.algorithms;
+package com.algorithms.sorting;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.algorithms.sorting.InsertionSort;
 import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
