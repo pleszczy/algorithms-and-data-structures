@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Demonstrates the MergeSort algorithm for the input array: [3, 2, 4, 1, 6]
+ * Demonstrates the MergeSort algorithm.
  * <p>
  * [3, 2, 4, 1, 6]
  * /           \

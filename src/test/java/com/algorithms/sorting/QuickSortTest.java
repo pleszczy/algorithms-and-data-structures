@@ -5,8 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 
-class MergeSortTest {
-  private final MergeSort systemUnderTest = new MergeSort();
+class QuickSortTest {
+  private final QuickSort systemUnderTest = new QuickSort();
 
   @Test
   void should_sort_list_of_integers() {
