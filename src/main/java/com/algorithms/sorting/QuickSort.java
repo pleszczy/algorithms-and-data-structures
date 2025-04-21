@@ -46,9 +46,16 @@ public class QuickSort {
     if (input.size() <= 1) {
       return input;
     }
+    var pivot = pickPivotNaive(input);
+    var splitByPivot = splitByPivot(input, pivot);
+    var sorted = new ArrayList<Integer>();
+    sorted.addAll(sort(splitByPivot.less));
+    sorted.add(pivot);
+    sorted.addAll(sort(splitByPivot.greater));
+    return sorted;
+  }
 
-    int pivot = pickPivotNaive(input);
-
+  public Tuple splitByPivot(List<Integer> input, int pivot) {
     var less = new ArrayList<Integer>();
     var greater = new ArrayList<Integer>();
 
@@ -60,12 +67,7 @@ public class QuickSort {
       }
     }
 
-    var sorted = new ArrayList<Integer>();
-    sorted.addAll(sort(less));
-    sorted.add(pivot);
-    sorted.addAll(sort(greater));
-
-    return sorted;
+    return new Tuple(less, greater);
   }
 
   /**
@@ -78,5 +80,8 @@ public class QuickSort {
    */
   private Integer pickPivotNaive(List<Integer> input) {
     return input.getLast();
+  }
+
+  public record Tuple(List<Integer> less, List<Integer> greater) {
   }
 }
