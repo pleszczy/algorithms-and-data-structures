@@ -1,5 +1,6 @@
 package com.algorithms.search;
 
+import static com.utils.TreeUtils.binaryTreeForRemovalTests;
 import static com.utils.TreeUtils.binaryTreeProper;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -54,14 +55,38 @@ class BinarySearchTreeTest {
   }
 
   @Test
-  void should_remove_node() {
+  void should_remove_leaf() {
     var bst = systemUnderTest.insert(binaryTreeProper(), 3);
 
     systemUnderTest.remove(bst, 3);
-    var minimum = systemUnderTest.findMinimum(bst);
 
+    var minimum = systemUnderTest.findMinimum(bst);
     assertThat(minimum)
         .isNotNull()
         .returns(2, TreeNode::value);
+  }
+
+  @Test
+  void should_remove_node_with_single_child() {
+    var bst = systemUnderTest.insert(binaryTreeProper(), 3);
+
+    systemUnderTest.remove(bst, 2);
+
+    assertThat(bst.left())
+        .isNotNull()
+        .returns(4, TreeNode::value);
+  }
+
+  @Test
+  void should_remove_nodes_with_two_children() {
+    var bst = binaryTreeForRemovalTests();
+
+    systemUnderTest.remove(bst, 6);
+
+    assertThat(bst.right())
+        .isNotNull()
+        .returns(8, TreeNode::value)
+        .returns(7, integerTreeNode -> integerTreeNode.left().value())
+        .returns(9, integerTreeNode1 -> integerTreeNode1.right().value());
   }
 }

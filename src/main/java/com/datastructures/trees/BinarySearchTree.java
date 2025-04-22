@@ -32,6 +32,18 @@ public class BinarySearchTree {
 
   public TreeNode<Integer> remove(TreeNode<Integer> root, Integer value) {
     if (root.value() == value) {
+      if (root.left() != null && root.right() != null) {
+        // TODO: Figure out how to create a new new node with both left and right nodes and a value from left
+        var left = root.left();
+        var right = root.right();
+        return new TreeNode<>(root.right().value(), null, root.left());
+      }
+      if (root.left() != null) {
+        return root.left();
+      }
+      if (root.right() != null) {
+        return root.right();
+      }
       return null;
     }
 
