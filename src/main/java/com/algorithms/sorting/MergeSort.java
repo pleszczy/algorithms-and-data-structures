@@ -56,7 +56,7 @@ public class MergeSort {
     return merged;
   }
 
-  private static void addRemainingElements(List<Integer> sortedLeft, int leftIndex, ArrayList<Integer> merged) {
+  private void addRemainingElements(List<Integer> sortedLeft, int leftIndex, ArrayList<Integer> merged) {
     while (leftIndex < sortedLeft.size()) {
       merged.add(sortedLeft.get(leftIndex));
       leftIndex++;
