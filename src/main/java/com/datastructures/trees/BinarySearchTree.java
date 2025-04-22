@@ -30,6 +30,20 @@ public class BinarySearchTree {
     return root;
   }
 
+  public TreeNode<Integer> remove(TreeNode<Integer> root, Integer value) {
+    if (root.value() == value) {
+      return null;
+    }
+
+    if (value > root.value() && root.right() != null) {
+      root.right(remove(root.right(), value));
+    }
+    if (value < root.value() && root.left() != null) {
+      root.left(remove(root.left(), value));
+    }
+    return root;
+  }
+
   public TreeNode<Integer> findMinimum(TreeNode<Integer> root) {
     var current = root;
     while (current.left() != null) {

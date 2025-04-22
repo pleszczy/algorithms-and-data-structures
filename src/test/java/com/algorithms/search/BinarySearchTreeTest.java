@@ -52,4 +52,16 @@ class BinarySearchTreeTest {
         .isNotNull()
         .returns(2, TreeNode::value);
   }
+
+  @Test
+  void should_remove_node() {
+    var bst = systemUnderTest.insert(binaryTreeProper(), 3);
+
+    systemUnderTest.remove(bst, 3);
+    var minimum = systemUnderTest.findMinimum(bst);
+
+    assertThat(minimum)
+        .isNotNull()
+        .returns(2, TreeNode::value);
+  }
 }
