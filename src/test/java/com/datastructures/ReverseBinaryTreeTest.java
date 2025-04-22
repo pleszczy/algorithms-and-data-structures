@@ -4,6 +4,8 @@ import static com.datastructures.ReverseBinaryTreeTest.Constants.binaryTree;
 import static com.datastructures.ReverseBinaryTreeTest.Constants.reversedBinaryTree;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.datastructures.trees.ReverseBinaryTree;
+import com.datastructures.trees.TreeNode;
 import org.junit.jupiter.api.Test;
 
 class ReverseBinaryTreeTest {

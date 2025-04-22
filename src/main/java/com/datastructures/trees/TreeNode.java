@@ -1,4 +1,4 @@
-package com.datastructures;
+package com.datastructures.trees;
 
 import static java.lang.System.lineSeparator;
 
