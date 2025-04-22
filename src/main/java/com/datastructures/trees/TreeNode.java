@@ -3,8 +3,12 @@ package com.datastructures.trees;
 import static java.lang.System.lineSeparator;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.experimental.Accessors;
 
 @EqualsAndHashCode
+@Getter
+@Accessors(fluent = true)
 public class TreeNode<E> {
   int value;
   TreeNode<E> left;
