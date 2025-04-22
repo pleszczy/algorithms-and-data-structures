@@ -3,7 +3,7 @@ package com.algorithms.search;
 import static com.utils.TreeUtils.binaryTreeProper;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.datastructures.BinarySearchTree;
+import com.datastructures.trees.BinarySearchTree;
 import com.datastructures.trees.TreeNode;
 import org.junit.jupiter.api.Test;
 
@@ -40,5 +40,16 @@ class BinarySearchTreeTest {
         .returns(3, TreeNode::value)
         .returns(null, TreeNode::left)
         .returns(null, TreeNode::right);
+  }
+
+  @Test
+  void should_find_minimum() {
+    var bst = binaryTreeProper();
+
+    var minimum = systemUnderTest.findMinimum(bst);
+
+    assertThat(minimum)
+        .isNotNull()
+        .returns(2, TreeNode::value);
   }
 }

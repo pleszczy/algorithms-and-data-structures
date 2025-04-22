@@ -1,6 +1,4 @@
-package com.datastructures;
-
-import com.datastructures.trees.TreeNode;
+package com.datastructures.trees;
 
 public class BinarySearchTree {
 
@@ -30,5 +28,13 @@ public class BinarySearchTree {
       root.left(insert(root.left(), value));
     }
     return root;
+  }
+
+  public TreeNode<Integer> findMinimum(TreeNode<Integer> root) {
+    var current = root;
+    while (current.left() != null) {
+      current = current.left();
+    }
+    return current;
   }
 }

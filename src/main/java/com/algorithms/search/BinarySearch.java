@@ -35,8 +35,6 @@ public class BinarySearch {
     return -1;
   }
 
-  // Suppressing as this is for exercising and not just using built-in utils
-  @SuppressWarnings("UseCompareMethod")
   public int compareToCorrectValue(int n) {
     if (n > 10) {
       return 1;
