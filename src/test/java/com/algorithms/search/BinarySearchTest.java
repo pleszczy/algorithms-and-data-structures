@@ -48,4 +48,11 @@ class BinarySearchTest {
 
     assertThat(foundIndex).isEqualTo(7);
   }
+
+  @Test
+  void should_find_a_number_that_matches() {
+    var foundIndex = systemUnderTest.search(0, 100);
+
+    assertThat(foundIndex).isEqualTo(10);
+  }
 }
