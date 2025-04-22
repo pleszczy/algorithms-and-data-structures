@@ -4,15 +4,17 @@ import static java.lang.System.lineSeparator;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @EqualsAndHashCode
 @Getter
+@Setter
 @Accessors(fluent = true)
 public class TreeNode<E> {
-  int value;
-  TreeNode<E> left;
-  TreeNode<E> right;
+  private int value;
+  private TreeNode<E> left;
+  private TreeNode<E> right;
 
   public TreeNode(int value, TreeNode<E> left, TreeNode<E> right) {
     this.value = value;

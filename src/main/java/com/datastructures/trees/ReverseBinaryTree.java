@@ -29,11 +29,11 @@ public class ReverseBinaryTree {
    */
   public <E> TreeNode<E> solution(TreeNode<E> node) {
     if (node != null) {
-      var left = node.left;
-      node.left = node.right;
-      node.right = left;
-      solution(node.left);
-      solution(node.right);
+      var left = node.left();
+      node.left(node.right());
+      node.right(left);
+      solution(node.left());
+      solution(node.right());
     }
     return node;
   }
