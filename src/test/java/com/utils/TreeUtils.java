@@ -52,24 +52,24 @@ public class TreeUtils {
    * <pre>
    *           5
    *        /     \
-   *       2        6
+   *       4        10
    *        \    /    \
-   *         4   7    11
+   *         2   8    12
    *             /\   /\
-   *            8  9 10 12
+   *            7  9 11 13
    * </pre>
    */
   public static TreeNode<Integer> binaryTreeForRemovalTests() {
-    var leaf4 = leaf(4);
-    var leaf8 = leaf(8);
+    var leaf2 = leaf(2);
+    var leaf7 = leaf(7);
     var leaf9 = leaf(9);
-    var leaf10 = leaf(10);
-    var leaf12 = leaf(12);
-    var child11 = new TreeNode<>(8, leaf10, leaf12);
-    var child7 = new TreeNode<>(7, leaf8, leaf9);
-    var child2 = new TreeNode<>(2, null, leaf4);
-    var child6 = new TreeNode<>(6, child7, child11);
-    return new TreeNode<>(5, child2, child6);
+    var leaf11 = leaf(10);
+    var leaf13 = leaf(13);
+    var child8 = new TreeNode<>(8, leaf7, leaf9);
+    var child12 = new TreeNode<>(12, leaf11, leaf13);
+    var child10 = new TreeNode<>(10, child8, child12);
+    var child4 = new TreeNode<>(4, null, leaf2);
+    return new TreeNode<>(5, child4, child10);
   }
 
   /**

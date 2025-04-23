@@ -81,12 +81,12 @@ class BinarySearchTreeTest {
   void should_remove_nodes_with_two_children() {
     var bst = binaryTreeForRemovalTests();
 
-    systemUnderTest.remove(bst, 6);
+    systemUnderTest.remove(bst, 10);
 
     assertThat(bst.right())
         .isNotNull()
-        .returns(8, TreeNode::value)
-        .returns(7, integerTreeNode -> integerTreeNode.left().value())
-        .returns(9, integerTreeNode1 -> integerTreeNode1.right().value());
+        .returns(7, TreeNode::value)
+        .returns(8, integerTreeNode -> integerTreeNode.left().value())
+        .returns(12, integerTreeNode1 -> integerTreeNode1.right().value());
   }
 }
