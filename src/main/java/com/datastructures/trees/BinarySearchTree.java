@@ -1,6 +1,24 @@
 package com.datastructures.trees;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class BinarySearchTree {
+
+  public List<Integer> inorderTraversal(TreeNode<Integer> root) {
+    if (root == null) {
+      return Collections.emptyList();
+    }
+
+    var left = inorderTraversal(root.left());
+    var right = inorderTraversal(root.right());
+    var output = new ArrayList<Integer>();
+    output.addAll(left);
+    output.add(root.value());
+    output.addAll(right);
+    return output;
+  }
 
   public boolean search(TreeNode<Integer> tree, Integer target) {
     if (tree == null) {

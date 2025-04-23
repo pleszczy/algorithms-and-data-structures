@@ -89,4 +89,14 @@ class BinarySearchTreeTest {
         .returns(8, integerTreeNode -> integerTreeNode.left().value())
         .returns(12, integerTreeNode1 -> integerTreeNode1.right().value());
   }
+
+  @Test
+  void should_traverse_a_tree_in_order() {
+    var bst = binaryTreeForRemovalTests();
+
+    var treeTraversedInOrder = systemUnderTest.inorderTraversal(bst);
+
+    assertThat(treeTraversedInOrder)
+        .containsExactly(2, 4, 5, 7, 8, 9, 10, 11, 12, 13);
+  }
 }

@@ -63,12 +63,12 @@ public class TreeUtils {
     var leaf2 = leaf(2);
     var leaf7 = leaf(7);
     var leaf9 = leaf(9);
-    var leaf11 = leaf(10);
+    var leaf11 = leaf(11);
     var leaf13 = leaf(13);
     var child8 = new TreeNode<>(8, leaf7, leaf9);
     var child12 = new TreeNode<>(12, leaf11, leaf13);
     var child10 = new TreeNode<>(10, child8, child12);
-    var child4 = new TreeNode<>(4, null, leaf2);
+    var child4 = new TreeNode<>(4, leaf2, null);
     return new TreeNode<>(5, child4, child10);
   }
 
