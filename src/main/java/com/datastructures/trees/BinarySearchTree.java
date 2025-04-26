@@ -2,21 +2,44 @@ package com.datastructures.trees;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 public class BinarySearchTree {
 
-  public List<Integer> inorderTraversal(TreeNode<Integer> root) {
+  /**
+   * Depth-First Search
+   */
+  public List<Integer> dfsInOrder(TreeNode<Integer> root) {
     if (root == null) {
       return Collections.emptyList();
     }
-
-    var left = inorderTraversal(root.left());
-    var right = inorderTraversal(root.right());
     var output = new ArrayList<Integer>();
-    output.addAll(left);
+    output.addAll(dfsInOrder(root.left()));
     output.add(root.value());
-    output.addAll(right);
+    output.addAll(dfsInOrder(root.right()));
+    return output;
+  }
+
+  /**
+   * Breadth-First Search
+   */
+  public List<Integer> bfs(TreeNode<Integer> root) {
+    if (root == null) {
+      return Collections.emptyList();
+    }
+    var output = new ArrayList<Integer>();
+    var queue = new LinkedList<TreeNode<Integer>>();
+    queue.add(root);
+
+    while (!queue.isEmpty()) {
+      var node = queue.poll();
+      if (node != null) {
+        queue.add(node.left());
+        queue.add(node.right());
+        output.add(node.value());
+      }
+    }
     return output;
   }
 

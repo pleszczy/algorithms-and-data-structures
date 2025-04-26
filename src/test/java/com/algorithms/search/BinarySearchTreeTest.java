@@ -91,12 +91,23 @@ class BinarySearchTreeTest {
   }
 
   @Test
-  void should_traverse_a_tree_in_order() {
+  void should_traverse_tree_using_dfs() {
     var bst = binaryTreeForRemovalTests();
 
-    var treeTraversedInOrder = systemUnderTest.inorderTraversal(bst);
+    var dfsTraversedTree = systemUnderTest.dfsInOrder(bst);
 
-    assertThat(treeTraversedInOrder)
+    assertThat(dfsTraversedTree)
         .containsExactly(2, 4, 5, 7, 8, 9, 10, 11, 12, 13);
+  }
+
+  @Test
+  void should_traverse_tree_using_bfs() {
+    var bst = binaryTreeForRemovalTests();
+
+    var bfsTraversedTree = systemUnderTest.bfs(bst);
+
+    assertThat(bfsTraversedTree)
+        .containsExactly(5, 4, 10, 2, 8, 12, 7, 9, 11, 13);
+
   }
 }
