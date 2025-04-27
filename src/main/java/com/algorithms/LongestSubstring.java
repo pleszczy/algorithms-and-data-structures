@@ -1,4 +1,4 @@
-package com.algorithms.sorting;
+package com.algorithms;
 
 /**
  * Given a string s, find the length of the longest substring without duplicate characters.

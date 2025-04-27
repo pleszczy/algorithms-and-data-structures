@@ -8,6 +8,13 @@ class BinarySearchTest {
   BinarySearch systemUnderTest = new BinarySearch();
 
   @Test
+  void should_return_magic_index_if_element_was_not_found() {
+    var foundIndex = systemUnderTest.search(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 11);
+
+    assertThat(foundIndex).isEqualTo(-1);
+  }
+
+  @Test
   void should_return_index_of_an_element_in_middle_of_even_sorted_array() {
     var foundIndex = systemUnderTest.search(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, 5);
 

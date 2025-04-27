@@ -14,7 +14,11 @@ public class BinarySearch {
     if (target < middle) {
       return search(arr, target, start, index);
     } else {
-      return search(arr, target, index, end);
+      if (end - start > 1) {
+        return search(arr, target, index, end);
+      } else {
+        return -1;
+      }
     }
   }
 

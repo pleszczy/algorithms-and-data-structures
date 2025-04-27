@@ -1,4 +1,4 @@
-package com.algorithms.sorting;
+package com.algorithms;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
