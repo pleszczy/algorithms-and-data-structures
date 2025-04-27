@@ -26,7 +26,7 @@ class SearchMatrixTest {
     );
   }
 
-  @ParameterizedTest(name = "`{0}` {2} target {1}")
+  @ParameterizedTest(name = "{0} {2} target {1}")
   @MethodSource("matrixProvider")
   void should_return_length_of_longest_substring_without_repeating(int[][] matrix, int target, boolean expectedFound) {
     var actualFound = systemUnderTest.searchMatrixBruteForce(matrix, target);
@@ -34,7 +34,7 @@ class SearchMatrixTest {
     assertThat(actualFound).isEqualTo(expectedFound);
   }
 
-  @ParameterizedTest(name = "`{0}` {2} target {1}")
+  @ParameterizedTest(name = "{0} {2} target {1}")
   @MethodSource("matrixProvider")
   void should_return_length_of_longest_substring_without_repeating_optimized_1(int[][] matrix, int target, boolean expectedFound) {
     var actualFound = systemUnderTest.searchMatrixBruteForceOptimized1(matrix, target);
