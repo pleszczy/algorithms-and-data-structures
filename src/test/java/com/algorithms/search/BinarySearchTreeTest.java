@@ -1,7 +1,7 @@
 package com.algorithms.search;
 
-import static com.utils.TreeUtils.binaryTreeForRemovalTests;
-import static com.utils.TreeUtils.binaryTreeProper;
+import static com.utils.TreeUtils.binaryTreeA;
+import static com.utils.TreeUtils.binaryTreeB;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.datastructures.trees.BinarySearchTree;
@@ -13,7 +13,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_find_a_number_in_bst() {
-    var bst = binaryTreeProper();
+    var bst = binaryTreeA();
 
     var results = systemUnderTest.search(bst, 8);
 
@@ -22,7 +22,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_not_find_a_number_in_bst() {
-    var bst = binaryTreeProper();
+    var bst = binaryTreeA();
 
     var results = systemUnderTest.search(bst, 7);
 
@@ -31,7 +31,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_insert_at_leaf() {
-    var bst = binaryTreeProper();
+    var bst = binaryTreeA();
     var root = systemUnderTest.insert(bst, 3);
 
     var node4 = root.left().right();
@@ -45,7 +45,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_find_minimum() {
-    var bst = binaryTreeProper();
+    var bst = binaryTreeA();
 
     var minimum = systemUnderTest.findMinimum(bst);
 
@@ -56,7 +56,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_remove_leaf() {
-    var bst = systemUnderTest.insert(binaryTreeProper(), 3);
+    var bst = systemUnderTest.insert(binaryTreeA(), 3);
 
     systemUnderTest.remove(bst, 3);
 
@@ -68,7 +68,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_remove_node_with_single_child() {
-    var bst = systemUnderTest.insert(binaryTreeProper(), 3);
+    var bst = systemUnderTest.insert(binaryTreeA(), 3);
 
     systemUnderTest.remove(bst, 2);
 
@@ -79,7 +79,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_remove_nodes_with_two_children() {
-    var bst = binaryTreeForRemovalTests();
+    var bst = binaryTreeB();
 
     systemUnderTest.remove(bst, 10);
 
@@ -92,7 +92,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_traverse_tree_using_dfs() {
-    var bst = binaryTreeForRemovalTests();
+    var bst = binaryTreeB();
 
     var dfsTraversedTree = systemUnderTest.dfsInOrder(bst);
 
@@ -102,7 +102,7 @@ class BinarySearchTreeTest {
 
   @Test
   void should_traverse_tree_using_bfs() {
-    var bst = binaryTreeForRemovalTests();
+    var bst = binaryTreeB();
 
     var bfsTraversedTree = systemUnderTest.bfs(bst);
 

@@ -1,7 +1,7 @@
 package com.datastructures;
 
-import static com.utils.TreeUtils.fakeBinaryTree;
-import static com.utils.TreeUtils.reversedFakeBinaryTree;
+import static com.utils.TreeUtils.reversedTreeA;
+import static com.utils.TreeUtils.treeA;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.datastructures.trees.ReverseBinaryTree;
@@ -13,9 +13,9 @@ class ReverseBinaryTreeTest {
   void should_reverse_a_binary_tree() {
     var sut = new ReverseBinaryTree();
 
-    var actual = sut.solution(fakeBinaryTree());
+    var actual = sut.solution(treeA());
 
-    assertThat(actual).isEqualTo(reversedFakeBinaryTree());
+    assertThat(actual).isEqualTo(reversedTreeA());
   }
 
 }
