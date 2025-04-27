@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Named.named;
 
 import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -31,6 +32,7 @@ class BinarySearchTest {
     );
   }
 
+  @DisplayName("Should return a correct index whne binary searching an array (recursion version)")
   @ParameterizedTest(name = "When searching for {1} in {0} should return {2}")
   @MethodSource("matrixProvider")
   void should_return_correct_index_for_search(int[] inputArray, int target, int expectedIndex) {
@@ -38,6 +40,7 @@ class BinarySearchTest {
     assertThat(foundIndex).isEqualTo(expectedIndex);
   }
 
+  @DisplayName("Should return a correct index whne binary searching an array (loop version)")
   @ParameterizedTest(name = "When searching for {1} in {0} should return {2}")
   @MethodSource("matrixProvider")
   void should_return_correct_index_for_search_using_loop(int[] inputArray, int target, int expectedIndex) {
