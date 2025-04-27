@@ -32,8 +32,8 @@ public class BucketSort {
    */
   public List<Integer> sortImproved(List<Integer> input) {
     var output = new ArrayList<Integer>(input.size());
-    var min = Collections.min(input);
-    var max = Collections.max(input);
+    var min = Collections.min(input); // O(n)
+    var max = Collections.max(input); // O(n)
     var range = max - min + 1;
     var buckets = new int[range];
 

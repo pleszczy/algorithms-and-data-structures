@@ -70,9 +70,9 @@ public class BasicsArrays {
   }
 
 
-  private void shift(int[] input, int shiftUtil) {
+  private void shift(int[] input, int shiftUntil) {
     var previous = input[input.length - 1];
-    for (int i = input.length - 2; i > shiftUtil; i--) {
+    for (int i = input.length - 2; i > shiftUntil; i--) {
       var current = input[i];
       input[i] = previous;
       previous = current;
