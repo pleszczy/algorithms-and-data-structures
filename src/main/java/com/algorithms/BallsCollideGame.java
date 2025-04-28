@@ -7,9 +7,9 @@ import java.util.List;
 /**
  * directions:
  * -1 - left
- * 1 - right
+ *  1 - right
  * <p>
- * Ff balls collide, the ball with lower strength gets destroyed
+ * If balls collide, the ball with lower strength gets destroyed
  * <p>
  * Return indexes of the remaining balls
  */
@@ -19,6 +19,7 @@ public class BallsCollideGame {
     Deque<RemainingBall> remainingBalls = new ArrayDeque<>();
 
     for (var i = 0; i < directions.size(); i++) {
+      // TODO: iterate over all remaining balls
       var remainingBall = remainingBalls.peekLast();
       if (remainingBall == null) {
         remainingBalls.addLast(new RemainingBall(i, directions.get(i), strengths.get(i)));
