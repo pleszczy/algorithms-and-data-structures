@@ -23,6 +23,6 @@ class BallsCollideGameTest {
   void should_return_indexes_of_remaining_balls(List<Integer> directions, List<Integer> strengths, List<Integer> remainingBallsIndexes) {
     var survivingBallsIndexes = systemUnderTest.ballsCollide(directions, strengths);
 
-    assertThat(survivingBallsIndexes).containsAll(remainingBallsIndexes);
+    assertThat(survivingBallsIndexes).containsExactlyElementsOf(remainingBallsIndexes);
   }
 }
