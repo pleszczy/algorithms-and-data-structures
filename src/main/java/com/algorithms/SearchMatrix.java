@@ -25,13 +25,13 @@ public class SearchMatrix {
 
   public boolean searchMatrixBruteForceOptimized1(int[][] matrix, int target) {
     for (int[] rows : matrix) {
+      if (target < rows[0]) {
+        return false;
+      }
+      if (target > rows[rows.length - 1]) {
+        continue;
+      }
       for (int element : rows) {
-        if (target < rows[0]) {
-          return false;
-        }
-        if (target > rows[rows.length - 1]) {
-          break;
-        }
         if (element == target) {
           return true;
         }
