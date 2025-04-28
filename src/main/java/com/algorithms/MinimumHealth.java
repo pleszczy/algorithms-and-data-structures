@@ -8,7 +8,7 @@ import java.util.TreeSet;
  * Alex and Charlie are playing an online video game.
  * Initially, there are m players in the first level, and there are next n levels.
  * Each level introduces a new player (along with the players from the previous level).
- * Each player has some strength which determines the difficulty of beating this player.
+ * Each player has some strength that determines the difficulty of beating this player.
  * To pass any level, select any available players and beat them.
  * Alex has completed the game and beaten the rank-th strongest player at every level.
  * Now it's Charlie's turn to play. Whenever a player is beaten, Charlie's health decreases by the amount of strength of that player.
@@ -25,16 +25,16 @@ public class MinimumHealth {
   public int minimumHealth(List<Integer> initial_players, List<Integer> new_players, int rank) {
     var playersInGame = new TreeSet<Integer>(Comparator.reverseOrder());
     playersInGame.addAll(initial_players);
-    var minimumHealth = getRankedPlayerA(playersInGame, rank);
+    var minimumHealth = getRankedPlayer(playersInGame, rank);
 
-    for (int player : new_players) {
+    for (var player : new_players) {
       playersInGame.add(player);
-      minimumHealth += getRankedPlayerA(playersInGame, rank);
+      minimumHealth += getRankedPlayer(playersInGame, rank);
     }
     return minimumHealth;
   }
 
-  private Integer getRankedPlayerA(TreeSet<Integer> playersInGame, int rank) {
+  private Integer getRankedPlayer(TreeSet<Integer> playersInGame, int rank) {
     var iterator = playersInGame.iterator();
     for (var currentRank = 1; currentRank <= rank; currentRank++) {
       var player = iterator.next();
@@ -45,7 +45,7 @@ public class MinimumHealth {
     throw new IllegalArgumentException("Rank is out of bounds");
   }
 
-  private Integer getRankedPlayerB(TreeSet<Integer> playersInGame, int rank) {
+  private Integer getRankedPlayerUsingStreams(TreeSet<Integer> playersInGame, int rank) {
     return playersInGame.stream()
         .skip(rank - 1)
         .findFirst()
