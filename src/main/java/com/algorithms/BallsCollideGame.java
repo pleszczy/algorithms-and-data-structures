@@ -1,13 +1,12 @@
 package com.algorithms;
 
 import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.List;
 
 /**
  * directions:
  * -1 - left
- *  1 - right
+ * 1 - right
  * <p>
  * If balls collide, the ball with lower strength gets destroyed
  * <p>
@@ -16,23 +15,29 @@ import java.util.List;
 public class BallsCollideGame {
 
   public List<Integer> ballsCollide(List<Integer> directions, List<Integer> strengths) {
-    Deque<RemainingBall> remainingBalls = new ArrayDeque<>();
+    var remainingBalls = new ArrayDeque<RemainingBall>();
 
     for (var i = 0; i < directions.size(); i++) {
-      // TODO: iterate over all remaining balls
       var remainingBall = remainingBalls.peekLast();
+      var newBall = new RemainingBall(i, directions.get(i), strengths.get(i));
+
       if (remainingBall == null) {
-        remainingBalls.addLast(new RemainingBall(i, directions.get(i), strengths.get(i)));
+        remainingBalls.addLast(newBall);
         continue;
       }
 
-      if (remainingBall.direction == 1 && directions.get(i) == -1) {
-        if (remainingBall.strength < strengths.get(i)) {
+      while (remainingBall != null && remainingBall.direction() == 1 && directions.get(i) == -1) {
+        if (remainingBall.strength() < strengths.get(i)) {
           remainingBalls.removeLast();
-          remainingBalls.addLast(new RemainingBall(i, directions.get(i), strengths.get(i)));
+          remainingBall = remainingBalls.peekLast();
+        } else {
+          newBall = null;
+          break;
         }
-      } else {
-        remainingBalls.addLast(new RemainingBall(i, directions.get(i), strengths.get(i)));
+      }
+
+      if (newBall != null) {
+        remainingBalls.addLast(newBall);
       }
     }
 
@@ -41,6 +46,6 @@ public class BallsCollideGame {
         .toList();
   }
 
-  record RemainingBall(Integer index, Integer direction, Integer strength) {
+  record RemainingBall(int index, Integer direction, Integer strength) {
   }
 }

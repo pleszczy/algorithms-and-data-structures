@@ -14,7 +14,7 @@ class BallsCollideGameTest {
   static Stream<Arguments> remainingBalls() {
     return Stream.of(
         Arguments.of(List.of(1, -1, 1, -1, 1), List.of(1, 2, 3, 4, 5), List.of(1, 3, 4)),
-        Arguments.of(List.of(1, 1, -1, -1, -1, -1, 1), List.of(1, 2, 3, 4, 5, 6, 7), List.of(2, 3, 4, 5))
+        Arguments.of(List.of(1, 1, -1, -1, -1, -1, 1), List.of(1, 2, 3, 4, 5, 6, 7), List.of(2, 3, 4, 5, 6))
     );
   }
 
