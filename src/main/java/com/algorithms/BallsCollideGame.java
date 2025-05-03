@@ -13,39 +13,35 @@ import java.util.List;
  * Return indexes of the remaining balls
  */
 public class BallsCollideGame {
-
   public List<Integer> ballsCollide(List<Integer> directions, List<Integer> strengths) {
-    var remainingBalls = new ArrayDeque<RemainingBall>();
+    var remainingBalls = new ArrayDeque<Ball>();
 
     for (var i = 0; i < directions.size(); i++) {
-      var remainingBall = remainingBalls.peekLast();
-      var newBall = new RemainingBall(i, directions.get(i), strengths.get(i));
+      var topBall = remainingBalls.peekLast();
+      var direction = directions.get(i);
+      var strength = strengths.get(i);
+      var currentBall = new Ball(i, direction, strength);
 
-      if (remainingBall == null) {
-        remainingBalls.addLast(newBall);
-        continue;
-      }
-
-      while (remainingBall != null && remainingBall.direction() == 1 && directions.get(i) == -1) {
-        if (remainingBall.strength() < strengths.get(i)) {
+      while (topBall != null && topBall.direction() == 1 && direction == -1) {
+        if (topBall.strength() < strength) {
           remainingBalls.removeLast();
-          remainingBall = remainingBalls.peekLast();
+          topBall = remainingBalls.peekLast();
         } else {
-          newBall = null;
+          currentBall = null;
           break;
         }
       }
 
-      if (newBall != null) {
-        remainingBalls.addLast(newBall);
+      if (currentBall != null) {
+        remainingBalls.addLast(currentBall);
       }
     }
 
     return remainingBalls.stream()
-        .map(RemainingBall::index)
+        .map(Ball::index)
         .toList();
   }
 
-  record RemainingBall(int index, Integer direction, Integer strength) {
+  record Ball(int index, int direction, int strength) {
   }
 }
