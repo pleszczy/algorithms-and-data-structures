@@ -55,8 +55,8 @@ import java.util.List;
  */
 public class GradeStudents {
   public List<Integer> gradingStudents(List<Integer> grades) {
-    List<Integer> roundedGrades = new ArrayList<>(grades.size());
-    for (Integer grade : grades) {
+    var roundedGrades = new ArrayList<Integer>(grades.size());
+    for (var grade : grades) {
       if (grade < 38) {
         roundedGrades.add(grade);
         continue;
