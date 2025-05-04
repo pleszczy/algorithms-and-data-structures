@@ -16,7 +16,28 @@ class GradeStudentsTest {
         Arguments.of(
             List.of(73, 67, 38, 33),
             List.of(75, 67, 40, 33)
-        ));
+        ),
+        Arguments.of(
+            List.of(85, 90, 95),
+            List.of(85, 90, 95)
+        ),
+        Arguments.of(
+            List.of(81, 82, 87),
+            List.of(81, 82, 87)
+        ),
+        Arguments.of(
+            List.of(88, 93, 98),
+            List.of(90, 95, 100)
+        ),
+        Arguments.of(
+            List.of(0, 10, 20, 30, 37),
+            List.of(0, 10, 20, 30, 37)
+        ),
+        Arguments.of(
+            List.of(),
+            List.of()
+        )
+    );
   }
 
   @ParameterizedTest(name = "`{0}` rounded should be {1}")
