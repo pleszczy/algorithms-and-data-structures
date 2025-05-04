@@ -36,7 +36,7 @@ public class MergeSort {
   }
 
   private List<Integer> merge(List<Integer> sortedLeft, List<Integer> sortedRight) {
-    var merged = new ArrayList<Integer>();
+    var merged = new ArrayList<Integer>(sortedLeft.size() + sortedRight.size());
     int leftIndex = 0;
     int rightIndex = 0;
 
@@ -47,10 +47,8 @@ public class MergeSort {
         merged.add(sortedRight.get(rightIndex++));
       }
     }
-
     addRemainingElements(sortedLeft, leftIndex, merged);
     addRemainingElements(sortedRight, rightIndex, merged);
-
     return merged;
   }
 
