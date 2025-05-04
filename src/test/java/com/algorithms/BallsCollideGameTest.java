@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class BallsCollideGameTest {
-  BallsCollideGame systemUnderTest = new BallsCollideGame();
+  private final BallsCollideGame systemUnderTest = new BallsCollideGame();
 
   static Stream<Arguments> remainingBalls() {
     return Stream.of(

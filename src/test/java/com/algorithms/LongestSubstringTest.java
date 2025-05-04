@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class LongestSubstringTest {
-  LongestSubstring systemUnderTest = new LongestSubstring();
+  private final LongestSubstring systemUnderTest = new LongestSubstring();
 
   static Stream<Arguments> longestLengthProvider() {
     return Stream.of(

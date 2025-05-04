@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class FactorialTest {
-  Factorial systemUnderTest = new Factorial();
+  private final Factorial systemUnderTest = new Factorial();
 
   @Test
   void should_return_factorial_using_recursion() {

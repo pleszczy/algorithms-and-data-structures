@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class InsertionSortTest {
-  InsertionSort systemUnderTest = new InsertionSort();
+  private final InsertionSort systemUnderTest = new InsertionSort();
 
   @Test
   void should_sort_list_of_integers() {

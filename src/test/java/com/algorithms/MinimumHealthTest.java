@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class MinimumHealthTest {
-  MinimumHealth systemUnderTest = new MinimumHealth();
+  private final MinimumHealth systemUnderTest = new MinimumHealth();
 
   @Test
   void should_return_correct_minimum_health() {

@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class MergeSortedListsTest {
-  MergeSortedLists systemUnderTest = new MergeSortedLists();
+  private final MergeSortedLists systemUnderTest = new MergeSortedLists();
 
   @Test
   void should_merge_two_sorted_lists() {

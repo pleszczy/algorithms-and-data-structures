@@ -6,7 +6,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class BucketSortTest {
-  BucketSort systemUnderTest = new BucketSort();
+  private final BucketSort systemUnderTest = new BucketSort();
 
   @Test
   void should_sort_list_of_integers() {

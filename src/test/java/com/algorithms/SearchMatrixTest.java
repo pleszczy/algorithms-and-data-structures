@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 class SearchMatrixTest {
-  SearchMatrix systemUnderTest = new SearchMatrix();
+  private final SearchMatrix systemUnderTest = new SearchMatrix();
 
   static Stream<Arguments> matrixProvider() {
     return Stream.of(
