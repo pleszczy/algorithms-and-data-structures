@@ -31,16 +31,14 @@ import java.util.List;
  * The absolute difference is |34 - 34| = 0
  * </p>
  *
- * <p>
- *
- * @param ar a 2D array of integers representing the square matrix
- * @returns the absolute difference between the sums of the matrix's two diagonals
- *
  * <p><strong>Constraints:</strong>
  * <ul>
  *   <li>The matrix is square, with dimensions n x n</li>
  *   <li>Each element arr[i][j] satisfies -100 <= arr[i][j] <= 100</li>
  * </ul>
+ *
+ * @param ar a 2D array of integers representing the square matrix
+ * @returns the absolute difference between the sums of the matrix's two diagonals
  */
 public class DiagonalDifference {
   public int diagonalDifference(List<List<Integer>> arr) {

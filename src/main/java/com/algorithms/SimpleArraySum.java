@@ -10,9 +10,6 @@ import java.util.List;
  * For example, if the array is {@code [1, 2, 3]}, the result will be {@code 6}.
  * </p>
  *
- * @param ar an array of integers
- * @return the sum of the elements in the array
- *
  * <p><b>Constraints:</b></p>
  * <ul>
  *   <li>0 &lt; ar.length ≤ 1000</li>
@@ -24,6 +21,9 @@ import java.util.List;
  *   <li>The first line contains an integer, {@code n}, denoting the size of the array.</li>
  *   <li>The second line contains {@code n} space-separated integers representing the array's elements.</li>
  * </ol>
+ * @param ar an array of integers
+ * @return the sum of the elements in the array
+ *
  */
 public class SimpleArraySum {
   public int sumArray(int n, int[] array) {
