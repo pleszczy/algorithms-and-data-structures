@@ -11,22 +11,13 @@ public class MergeSortedLists {
 
     while (indexA < listA.size() && indexB < listB.size()) {
       if (listA.get(indexA) < listB.get(indexB)) {
-        mergedLists.add(listA.get(indexA));
-        indexA++;
+        mergedLists.add(listA.get(indexA++));
       } else {
-        mergedLists.add(listB.get(indexB));
-        indexB++;
+        mergedLists.add(listB.get(indexB++));
       }
     }
-    addRemaining(listA, indexA, mergedLists);
-    addRemaining(listB, indexB, mergedLists);
+    mergedLists.addAll(listA.subList(indexA, listA.size()));
+    mergedLists.addAll(listB.subList(indexB, listB.size()));
     return mergedLists;
-  }
-
-  private static void addRemaining(List<Integer> listA, int indexA, List<Integer> mergedLists) {
-    while (indexA < listA.size()) {
-      mergedLists.add(listA.get(indexA));
-      indexA++;
-    }
   }
 }

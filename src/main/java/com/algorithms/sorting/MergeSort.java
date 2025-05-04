@@ -42,11 +42,9 @@ public class MergeSort {
 
     while (leftIndex < sortedLeft.size() && rightIndex < sortedRight.size()) {
       if (sortedLeft.get(leftIndex) <= sortedRight.get(rightIndex)) {
-        merged.add(sortedLeft.get(leftIndex));
-        leftIndex++;
+        merged.add(sortedLeft.get(leftIndex++));
       } else {
-        merged.add(sortedRight.get(rightIndex));
-        rightIndex++;
+        merged.add(sortedRight.get(rightIndex++));
       }
     }
 
@@ -56,6 +54,7 @@ public class MergeSort {
     return merged;
   }
 
+  // Could be replaced and inlined with merged.addAll(list.subList(index, list.size()));
   private void addRemainingElements(List<Integer> sortedLeft, int leftIndex, ArrayList<Integer> merged) {
     while (leftIndex < sortedLeft.size()) {
       merged.add(sortedLeft.get(leftIndex));
