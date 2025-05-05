@@ -25,7 +25,7 @@ public class BinarySearch {
   public int search(int low, int high) {
     while (low <= high) {
       var mid = (low + high) / 2;
-      var result = compareToCorrectValue(mid);
+      var result = Integer.compare(mid, 10);
       if (result > 0) {
         high = mid - 1;
       }
@@ -58,9 +58,5 @@ public class BinarySearch {
       }
     }
     return -1;
-  }
-
-  public int compareToCorrectValue(int n) {
-    return Integer.compare(n, 10);
   }
 }
